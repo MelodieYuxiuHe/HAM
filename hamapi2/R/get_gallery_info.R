@@ -11,7 +11,7 @@
 #' @examples
 #' get_gallery_info(floor=2, size=14)
 #' get_gallery_info(floor=1, size=12)
-#' @import svDialogs
+#' @importFrom svDialogs dlgInput
 #' @import httr
 #' @import RCurl
 #' @import rvest
@@ -20,7 +20,7 @@ get_gallery_info <- function(floor=2, size=10){
   #library(httr)
   #library(RCurl)
   #library(svDialogs)
-  #token <- get_token()
+  token <- get_token()
   url1 <- 'http://api.harvardartmuseums.org/gallery?'
   url2 <- 'floor='
   url3 <- '&apikey='

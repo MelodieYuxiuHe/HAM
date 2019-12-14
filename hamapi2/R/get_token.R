@@ -1,7 +1,7 @@
 #' Get a token and save it as a global variable for future use.
 #'
 #' @return It will return the token that user input
-#' @import svDialogs
+#' @importFrom svDialogs dlgInput
 #' @import utils
 #' @export
 get_token <- function(){
@@ -10,7 +10,7 @@ get_token <- function(){
                      Sys.info())$res
   return(token1)
   #utils::globalVariables(c("token"))
-  #assign("token", token1, envir = globalenv())
+  #assign("token", token, envir = globalenv())
 }
-token <- get_token()
-assign("token", token, envir = globalenv())
+#token <- get_token()
+#assign("token", token, envir = globalenv())

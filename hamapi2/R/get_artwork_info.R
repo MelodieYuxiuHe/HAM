@@ -16,7 +16,7 @@
 get_artwork_info <- function(classification='Prints', size=10){
   #library(httr)
   #library(svDialogs)
-  #token <- get_token()
+  token <- get_token()
   url <- list()
   title <- list()
   dclassification <- list()

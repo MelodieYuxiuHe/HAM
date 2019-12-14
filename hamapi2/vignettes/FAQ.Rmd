@@ -1,0 +1,39 @@
+---
+title: "FAQ"
+subtitle: "hamapi: Collecting Harvard Art Museum Data"
+author: "Yuxiu He"
+date: "12/13/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{FAQ}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+library(hamapi)
+```
+
+## The "function get_artwork_info" returns NULL...
+```{r}
+#> artresult <- get_artwork_info(classification='Prints', size=10)
+#>
+# NULL
+```
+
+#### Solutions
+
+1. Make sure you have run the function token <- get_token() AND assign("token", token, envir = globalenv())
+1. The possible reason for this situation is that this package can only run after inputting the corresponding token.
+1. Please try download this package from https://github.com/MelodieYuxiuHe/HAM and use devtools::load_all()
+1. Make sure your input of token is correct and this package should work now.
+1. I apologize for any inconvenience caused. 
+
+Good luck!

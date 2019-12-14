@@ -1,0 +1,393 @@
+---
+title: "my-vignette"
+subtitle: "hamapi: Collecting Harvard Art Museum Data"
+author: "Yuxiu He"
+date: "12/13/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+  
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(hamapi)
+```
+
+1. First, please input your token in the pop-up window.
+```{r}
+#install.packages("svDialogs")
+library(svDialogs)
+get_token <- function(){
+  #library(svDialogs)
+  token1 <- dlgInput("What's your Harvard Art Museum token? (without ' ' at the beginning and the end)",
+                     Sys.info())$res
+  return(token1)
+  #utils::globalVariables(c("token"))
+  #assign("token", token, envir = globalenv())
+}
+token <- get_token()
+assign("token", token, envir = globalenv())
+```
+
+
+2. Check if your input of classification is valid.
+```{R}
+is_classification <- function(class="Prints"){
+  classlist <- c('Prints', 'Albums', 'Amulets', 'Armor',
+                 'Boxes', 'Calligraphy', 'Cameos', 'Fragments', 'Furnishings', 'Gems',
+                 'Inscriptions', 'Jewelry', 'Mirrors', 'Mosaics', 'Paintings',
+                 'Photographs', 'Plaques', 'Rubbings', 'Sculpture', 'Seals',
+                 'Tablets', 'Tokens', 'Vessels')
+  if (class %in% classlist){
+    TRUE
+  }
+  else {
+    FALSE
+  }
+}
+```
+
+example
+```{R}
+is_classification(class = 'Prints')
+is_classification(class = 'Music')
+```
+
+3. Get artwork information by classification
+```{r}
+library(httr)
+library(svDialogs)
+
+get_artwork_info <- function(classification='Prints', size=10){
+  #token <- get_token()
+  url <- list()
+  title <- list()
+  dclassification <- list()
+  division <- list()
+  century <- list()
+  objectid <- list()
+  culture <- list()
+  period <- list()
+  department <- list()
+  imageurl <- list()
+
+  url1 <- 'http://api.harvardartmuseums.org/object?'
+  url2 <- 'classification='
+  url3 <- '&apikey='
+  url4 <- '&size='
+  endpoint <- paste(url1, url2, classification, url3, token, url4, size, sep ="")
+
+  #if (length(endpoint) != 1){
+  #  stop(
+  #    sprintf(
+  #      "Harvard Art Museum request failed"
+  #    ),
+  #    call. = FALSE
+  #  )
+  #}
+  if (is_classification(classification)==FALSE){
+    stop(
+      sprintf(
+        "Invalid classification input"
+      ),
+      call. = FALSE
+    )
+  }
+  else if (size > 100){
+    stop(
+      sprintf(
+        "API limit exceeded"
+      ),
+      call. = FALSE
+    )
+  }
+  else if (length(endpoint) == 1){
+    webinfo <- GET(endpoint)
+    web <- content(GET(endpoint))
+    status <- as.numeric(status_code(webinfo))
+    if (status != 200){
+      stop(
+        sprintf(
+          "Harvard Art Museum request failed",
+          status
+        ),
+        call. = FALSE
+      )
+    }
+    else {
+      for (i in 1:size){
+        if (is.null(web$records[[i]]$url) == TRUE){
+          web$records[[i]]$url = "no record"
+        }
+        if (is.null(web$records[[i]]$title) == TRUE){
+          web$records[[i]]$title = "no record"
+        }
+        if (is.null(web$records[[i]]$century) == TRUE){
+          web$records[[i]]$century = "no record"
+        }
+        if (is.null(web$records[[i]]$objectid) == TRUE){
+          web$records[[i]]$objectid = "no record"
+        }
+        if (is.null(web$records[[i]]$division) == TRUE){
+          web$records[[i]]$division = "no record"
+        }
+        if (is.null(web$records[[i]]$culture) == TRUE){
+          web$records[[i]]$culture = "no record"
+        }
+        if (is.null(web$records[[i]]$period) == TRUE){
+          web$records[[i]]$period = "no record"
+        }
+        if (is.null(web$records[[i]]$department) == TRUE){
+          web$records[[i]]$department = "no record"
+        }
+        if (is.null(web$records[[i]]$images[[1]]$baseimageurl) == TRUE){
+          web$records[[i]]$imageurl = "no record"
+        }
+        if (is.null(web$records[[i]]$classification) == TRUE){
+          web$records[[i]]$classification = "no record"
+        }
+        objectid[i] <- web$records[[i]]$objectid
+        url[i] <- web$records[[i]]$url
+        title[i] <- web$records[[i]]$title
+        century[i] <- web$records[[i]]$century
+        dclassification[i] <- web$records[[i]]$classification
+        division[i] <- web$records[[i]]$division
+        culture[i] <- web$records[[i]]$culture
+        period[i] <- web$records[[i]]$period
+        department[i] <- web$records[[i]]$department
+        imageurl[i] <- web$records[[i]]$images[[1]]$baseimageurl
+      }
+      result1 <- list(title, century, period, culture, division, dclassification, department,
+                      objectid, url, imageurl)
+      result2 <- lapply(result1, function(x) ifelse(x == "NULL", "no record", x))
+      dat <- do.call(cbind, lapply(result2, cbind))
+      result <- as.data.frame(dat)
+
+      colnames(result) <- c("Title", "Century", "Period", "Culture","Division","Classification",
+                            "Department", "Objectid","Url", "Imageurl")
+      rownames(result) <- unlist(objectid)
+      return(result)
+    }
+  }
+}
+
+```
+
+example
+```{R}
+get_artwork_info(classification='Prints', size=10)
+```
+
+4. Get the image from the result of get_artwork_info function
+```{r}
+#library(curl)
+#library(utils)
+#get_picture <- function(classification = 'Prints', size=10, numberp=7){
+#   if (numberp > size){
+#     stop(
+#       sprintf(
+#         "You cannot download pictures more than your input size"
+#       ),
+#       call. = FALSE
+#     )
+#   }
+#   if (numberp > 5){
+#     continue <- dlg_message("Your mac/pc will be flooded by pictures. Do you want to continue?", "yesno")$res
+#     if (continue == 'no'){
+#       stop(
+#         sprintf(
+#           "Try a smaller number : )"
+#         ),
+#         call. = FALSE
+#       )
+#     }
+#     if (continue == 'yes'){
+#       resultform <- get_artwork_info(classification=classification, size=size)
+#       objectid1 <- resultform[,8]
+#       imageurls <- as.vector(unlist(resultform[, 10]))
+#       nameimage <- list()
+#       for (i in 1:numberp){
+#         nameimage[i] <- paste(objectid1[[i]],'.jpeg',sep="")
+#         download.file(url = as.character(imageurls[i]), destfile = as.character(nameimage[i]),
+#         quiet = FALSE, mode="w",cacheOK=TRUE)
+#         #curl_download(as.character(imageurls[i]), destfile = as.character(nameimage[i]),
+#          #             quiet = FALSE, handle = new_handle())
+#       }
+#       print("Hooray! finished")
+#     }
+#   }
+#   if (numberp <= 5){
+#     resultform <- get_artwork_info(classification=classification, size=size)
+#     objectid1 <- resultform[,8]
+#     imageurls <- as.vector(unlist(resultform[, 10]))
+#     for (i in 1:numberp){
+#       nameimage <- list()
+#       nameimage[i] <- paste(objectid1[[i]],'.jpeg',sep="")
+#       download.file(imageurls[i], destfile = as.character(nameimage[i]),
+#                     quiet = FALSE, mode="w",cacheOK=TRUE)
+#     }
+#     print("Hooray! finished")
+#   }
+# }
+
+
+
+```
+
+example
+```{r}
+#get_picture(size=10, numberp = 2, classification = 'Vessels')
+#get_picture(size=5, numberp = 2, classification = 'Prints')
+```
+
+5. Get information about galleries on each floor
+```{R}
+get_gallery_info <- function(floor=2, size=10){
+  #library(httr)
+  #library(RCurl)
+  #library(svDialogs)
+  #token <- get_token()
+  url1 <- 'http://api.harvardartmuseums.org/gallery?'
+  url2 <- 'floor='
+  url3 <- '&apikey='
+  url4 <- '&size='
+
+  endpoint <- paste(url1, url2, floor, url3, token, url4, size, sep ="")
+  name <- list()
+  theme <- list()
+  galleryid <- list()
+  gfloor <- list()
+  objectcount <- list()
+  labeltext <- list()
+  url <- list()
+
+  if (floor > 3){
+    stop(
+      sprintf(
+        "Only Floor 1 - Floor 3 have galleries"
+      ),
+      call. = FALSE
+    )
+  }
+  if (floor == 1 & size > 20){
+    stop(
+      sprintf(
+        "First floor only have 20 galleries"
+      ),
+      call. = FALSE
+    )
+  }
+  if (floor == 2 & size > 24){
+    stop(
+      sprintf(
+        "Second floor only have 24 galleries"
+      ),
+      call. = FALSE
+    )
+  }
+  if (floor == 3 & size > 12){
+    stop(
+      sprintf(
+        "Third flood only have 12 galleries"
+      ),
+      call. = FALSE
+    )
+  }
+  if (length(endpoint) ==1){
+    webinfo <- GET(endpoint)
+    web <- content(GET(endpoint))
+    status <- as.numeric(status_code(webinfo))
+    if (status != 200){
+      stop(
+        sprintf(
+          "Harvard Art Museum request failed",
+          status
+        ),
+        call. = FALSE
+      )
+    }
+    else {
+      for (i in 1: size){
+        if (is.null(web$records[[i]]$url) == TRUE){
+          web$records[[i]]$url = "no record"
+        }
+        if (is.null(web$records[[i]]$name) == TRUE){
+          web$records[[i]]$name = "no record"
+        }
+        if (is.null(web$records[[i]]$galleryid) == TRUE){
+          web$records[[i]]$galleryid = "no record"
+        }
+        if (is.null(web$records[[i]]$objectcount) == TRUE){
+          web$records[[i]]$objectcount = "no record"
+        }
+        if (is.null(web$records[[i]]$theme) == TRUE){
+          web$records[[i]]$theme = "no record"
+        }
+        if (is.null(web$records[[i]]$floor) == TRUE){
+          web$records[[i]]$floor = "no record"
+        }
+        if (is.null(web$records[[i]]$labeltext) == TRUE){
+          web$records[[i]]$labeltext = "no record"
+        }
+        galleryid[i] <- web$records[[i]]$galleryid
+        url[i] <- web$records[[i]]$url
+        theme[i] <- web$records[[i]]$theme
+        name[i] <- web$records[[i]]$name
+        objectcount[i] <- web$records[[i]]$objectcount
+        labeltext[i] <- web$records[[i]]$labeltext
+        gfloor[i] <- web$records[[i]]$floor
+      }
+      result1 <- list(name, theme, galleryid, gfloor, objectcount, labeltext, url)
+      result2 <- lapply(result1, function(x) ifelse(x == "NULL", "no record", x))
+      dat <- do.call(cbind, lapply(result2, cbind))
+      result <- as.data.frame(dat)
+
+      colnames(result) <- c("Name", "Theme", "Galleryid", "Floor", "Objectcount","Labeltext","Url")
+      rownames(result) <- unlist(galleryid)
+      return(result)
+      #assign("gallery_result_form", gresult, envir = globalenv())
+    }
+
+  }
+}
+```
+
+example
+```{r}
+get_gallery_info(floor=2, size=14)
+get_gallery_info(floor=1, size=12)
+
+```
+
+6. What is the gallery that has most object collections?
+```{r}
+most_object <- function(floor=2, size=5){
+  #library(httr)
+  #library(svDialogs)
+  #token <- get_token()
+  galleryr <- get_gallery_info(floor=floor, size=size)
+  obcount <- as.vector(unlist(galleryr$Objectcount))
+  for (i in 1:size){
+    maxob <- max(as.numeric(obcount[i]))
+    result <- galleryr$Name[i]
+  }
+  return(result)
+}
+```
+
+example
+```{r}
+most_object(floor = 3, size = 2)
+most_object(floor = 2, size = 20)
+```
+
+Thank you for your time! If there are any questions, please feel free to contact me at yh3137@columbia.edu.
+Hope you enjoy the artwork : )
