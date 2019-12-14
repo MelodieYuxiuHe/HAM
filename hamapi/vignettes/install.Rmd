@@ -23,7 +23,7 @@ library(hamapi)
 This package can be installed through
 ```{r}
 #library(devtools)
-install_github("MelodieYuxiuHe/HAM/hamapi")
+#install_github("MelodieYuxiuHe/HAM/hamapi")
 ```
 
 Please make sure you have run the function get_token() before calling other functions. 
