@@ -1,42 +1,3 @@
-#' Get a token and save it as a global variable for future use.
-#'
-#' @return It will return the token that user input
-#' @export
-#' @importFrom svDialogs dlgInput
-#' @import utils
-get_token <- function(){
-  #library(svDialogs)
-  token1 <- dlgInput("What's your Harvard Art Museum token? (without ' ' at the beginning and the end)",
-                     Sys.info())$res
-  return(token1)
-  #utils::globalVariables(c("token"))
-  #assign("token", token, envir = globalenv())
-}
-token <- get_token()
-assign("token", token, envir = globalenv())
-
-#' Check if the classification is a valid input.
-#'
-#' @param class A classification of Harvard Art Museum website.
-#' @return If this is a valid classification input for this package, it will return TRUE, otherwise, return FALSE
-#' @examples
-#' is_classification(class = 'Prints')
-#' is_classification(class = 'Music')
-#' @export
-is_classification <- function(class){
-  classlist <- c('Prints', 'Albums', 'Amulets', 'Armor',
-                 'Boxes', 'Calligraphy', 'Cameos', 'Fragments', 'Furnishings', 'Gems',
-                 'Inscriptions', 'Jewelry', 'Mirrors', 'Mosaics', 'Paintings',
-                 'Photographs', 'Plaques', 'Rubbings', 'Sculpture', 'Seals',
-                 'Tablets', 'Tokens', 'Vessels')
-  if (class %in% classlist){
-    TRUE
-  }
-  else {
-    FALSE
-  }
-}
-
 #' Get the artworks information within a classification
 #'
 #' @param classification An art classification according to Harvard Art Museum website. The full list of available
@@ -72,7 +33,7 @@ get_artwork_info <- function(classification='Prints', size=10){
   url3 <- '&apikey='
   url4 <- '&size='
   endpoint <- paste(url1, url2, classification, url3, token, url4, size, sep ="")
-  if (is_classification(classification)==FALSE){
+  if (is_classification(class=classification)==FALSE){
     stop(
       sprintf(
         "Invalid classification input"

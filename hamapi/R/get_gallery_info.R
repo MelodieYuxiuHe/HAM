@@ -1,46 +1,6 @@
-#' Get a token and save it as a global variable for future use.
-#'
-#' @return It will return the token that user input
-#' @export
-#' @importFrom svDialogs dlgInput
-#' @import utils
-get_token <- function(){
-  #library(svDialogs)
-  token1 <- dlgInput("What's your Harvard Art Museum token? (without ' ' at the beginning and the end)",
-                     Sys.info())$res
-  return(token1)
-  #utils::globalVariables(c("token"))
-  #assign("token", token, envir = globalenv())
-}
-token <- get_token()
-assign("token", token, envir = globalenv())
-
-
-#' Check if the classification is a valid input.
-#'
-#' @param class A classification of Harvard Art Museum website.
-#' @return If this is a valid classification input for this package, it will return TRUE, otherwise, return FALSE
-#' @examples
-#' is_classification(class = 'Prints')
-#' is_classification(class = 'Music')
-#' @export
-is_classification <- function(class){
-  classlist <- c('Prints', 'Albums', 'Amulets', 'Armor',
-                 'Boxes', 'Calligraphy', 'Cameos', 'Fragments', 'Furnishings', 'Gems',
-                 'Inscriptions', 'Jewelry', 'Mirrors', 'Mosaics', 'Paintings',
-                 'Photographs', 'Plaques', 'Rubbings', 'Sculpture', 'Seals',
-                 'Tablets', 'Tokens', 'Vessels')
-  if (class %in% classlist){
-    TRUE
-  }
-  else {
-    FALSE
-  }
-}
-
 #' Get the gallery information on a specific floor
 #'
-#' @param floor The level of Harvard Art Museum. Valid floor from 1 to 3. Floor 4 is for office use.
+#' @param floor1 The level of Harvard Art Museum. Valid floor from 1 to 3. Floor 4 is for office use.
 #'     Default is set to be 2.
 #' @param size Size specifies how many gallries the user would like to know about. Please note that there are only
 #'     20 galleries in floor 1, 24 galleries in floor 2 and 12 galleries in floor 3. Input an input size that is
@@ -56,7 +16,7 @@ is_classification <- function(class){
 #' @import httr
 #' @import RCurl
 #' @import rvest
-get_gallery_info <- function(floor=2, size=10){
+get_gallery_info <- function(floor1=2, size=10){
   #library(httr)
   #library(RCurl)
   #library(svDialogs)
@@ -65,7 +25,7 @@ get_gallery_info <- function(floor=2, size=10){
   url2 <- 'floor='
   url3 <- '&apikey='
   url4 <- '&size='
-  endpoint <- paste(url1, url2, floor, url3, token, url4, size, sep ="")
+  endpoint <- paste(url1, url2, floor1, url3, token, url4, size, sep ="")
   name <- list()
   theme <- list()
   galleryid <- list()
@@ -74,7 +34,7 @@ get_gallery_info <- function(floor=2, size=10){
   labeltext <- list()
   url <- list()
 
-  if (floor > 3){
+  if (floor1 > 3){
     stop(
       sprintf(
         "Only Floor 1 - Floor 3 have galleries"
@@ -82,7 +42,7 @@ get_gallery_info <- function(floor=2, size=10){
       call. = FALSE
     )
   }
-  if (floor == 1 & size > 20){
+  if (floor1 == 1 & size > 20){
     stop(
       sprintf(
         "First floor only have 20 galleries"
@@ -90,7 +50,7 @@ get_gallery_info <- function(floor=2, size=10){
       call. = FALSE
     )
   }
-  if (floor == 2 & size > 24){
+  if (floor1 == 2 & size > 24){
     stop(
       sprintf(
         "Second floor only have 24 galleries"
@@ -98,7 +58,7 @@ get_gallery_info <- function(floor=2, size=10){
       call. = FALSE
     )
   }
-  if (floor == 3 & size > 12){
+  if (floor1 == 3 & size > 12){
     stop(
       sprintf(
         "Third flood only have 12 galleries"
