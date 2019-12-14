@@ -1,3 +1,42 @@
+#' Get a token and save it as a global variable for future use.
+#'
+#' @return It will return the token that user input
+#' @export
+#' @importFrom svDialogs dlgInput
+#' @import utils
+get_token <- function(){
+  #library(svDialogs)
+  token1 <- dlgInput("What's your Harvard Art Museum token? (without ' ' at the beginning and the end)",
+                     Sys.info())$res
+  return(token1)
+  #utils::globalVariables(c("token"))
+  #assign("token", token, envir = globalenv())
+}
+token <- get_token()
+assign("token", token, envir = globalenv())
+
+#' Check if the classification is a valid input.
+#'
+#' @param class A classification of Harvard Art Museum website.
+#' @return If this is a valid classification input for this package, it will return TRUE, otherwise, return FALSE
+#' @examples
+#' is_classification(class = 'Prints')
+#' is_classification(class = 'Music')
+#' @export
+is_classification <- function(class){
+  classlist <- c('Prints', 'Albums', 'Amulets', 'Armor',
+                 'Boxes', 'Calligraphy', 'Cameos', 'Fragments', 'Furnishings', 'Gems',
+                 'Inscriptions', 'Jewelry', 'Mirrors', 'Mosaics', 'Paintings',
+                 'Photographs', 'Plaques', 'Rubbings', 'Sculpture', 'Seals',
+                 'Tablets', 'Tokens', 'Vessels')
+  if (class %in% classlist){
+    TRUE
+  }
+  else {
+    FALSE
+  }
+}
+
 #' Get the artworks information within a classification
 #'
 #' @param classification An art classification according to Harvard Art Museum website. The full list of available
@@ -13,10 +52,6 @@
 #' @importFrom svDialogs dlgInput
 #' @import rvest
 #' @import httr
-
-#setwd("/Users/Melodie/hamapi")
-#source("/Users/Melodie/hamapi/R/isclassification.R")
-#source("/Users/Melodie/hamapi/R/get_token.R")
 get_artwork_info <- function(classification='Prints', size=10){
   #library(httr)
   #library(svDialogs)
@@ -37,15 +72,6 @@ get_artwork_info <- function(classification='Prints', size=10){
   url3 <- '&apikey='
   url4 <- '&size='
   endpoint <- paste(url1, url2, classification, url3, token, url4, size, sep ="")
-
-  #if (length(endpoint) != 1){
-  #  stop(
-  #    sprintf(
-  #      "Harvard Art Museum request failed"
-  #    ),
-  #    call. = FALSE
-  #  )
-  #}
   if (is_classification(classification)==FALSE){
     stop(
       sprintf(
