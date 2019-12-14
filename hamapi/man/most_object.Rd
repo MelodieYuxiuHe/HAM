@@ -4,10 +4,10 @@
 \alias{most_object}
 \title{Which gallery has the most artwork object on a specified floor?}
 \usage{
-most_object(floor = 2, size = 5)
+most_object(floor2 = 2, size = 5)
 }
 \arguments{
-\item{floor}{The level of Harvard Art Museum. Valid floor from 1 to 3. Floor 4 is for office use.
+\item{floor2}{The level of Harvard Art Museum. Valid floor from 1 to 3. Floor 4 is for office use.
 Default to be 2.}
 
 \item{size}{Size specifies how many gallries the user would like to know about. Please note that there are only
@@ -21,6 +21,6 @@ a gallery name which has the most objects under a specific floor.
 Which gallery has the most artwork object on a specified floor?
 }
 \examples{
-most_object(floor = 3, size = 2)
-most_object(floor = 2, size = 20)
+most_object(floor2 = 3, size = 2)
+most_object(floor2 = 2, size = 20)
 }

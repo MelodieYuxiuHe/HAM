@@ -15,10 +15,22 @@
 #' @import httr
 
 get_artwork_info <- function(classification='Prints', size=10){
-  source('isclassification.R')
   #library(httr)
   #library(svDialogs)
   #token <- get_token()
+  is_classification <- function(class){
+    classlist <- c('Prints', 'Albums', 'Amulets', 'Armor',
+                   'Boxes', 'Calligraphy', 'Cameos', 'Fragments', 'Furnishings', 'Gems',
+                   'Inscriptions', 'Jewelry', 'Mirrors', 'Mosaics', 'Paintings',
+                   'Photographs', 'Plaques', 'Rubbings', 'Sculpture', 'Seals',
+                   'Tablets', 'Tokens', 'Vessels')
+    if (class %in% classlist){
+      TRUE
+    }
+    else {
+      FALSE
+    }
+  }
   url <- list()
   title <- list()
   dclassification <- list()
