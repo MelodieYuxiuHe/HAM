@@ -24,6 +24,7 @@ Imports:
     devtools,
     purrr,
     curl
+Remotes: hSciViews/svDialogs
 Suggests: 
     knitr,
     rmarkdown

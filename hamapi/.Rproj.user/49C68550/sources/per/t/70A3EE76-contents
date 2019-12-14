@@ -1,5 +1,3 @@
-# source("/Users/Melodie/hamapi/R/isclassification.R")
-# source("/Users/Melodie/hamapi/R/get_token.R")
 #' Get the artworks information within a classification
 #'
 #' @param classification An art classification according to Harvard Art Museum website. The full list of available
@@ -12,7 +10,7 @@
 #' @examples
 #' get_artwork_info(classification='Prints', size=10)
 #' @export
-#' @import svDialogs
+#' @importFrom svDialogs dlgInput
 #' @import rvest
 #' @import httr
 

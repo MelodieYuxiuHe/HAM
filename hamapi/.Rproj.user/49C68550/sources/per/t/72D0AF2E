@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "2952758776",
     "id" : "72D0AF2E",
     "lastKnownWriteTime" : 1576340642,
     "last_content_update" : 1576340642290,
     "path" : "~/hamapi/R/isclassification.R",
     "project_path" : "R/isclassification.R",
     "properties" : {
-        "cursorPosition" : "6,37",
-        "scrollLine" : "0"
+        "cursorPosition" : "22,1",
+        "scrollLine" : "10"
     },
     "read_only" : false,
     "read_only_alternatives" : [

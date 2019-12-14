@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "400161130",
     "id" : "97B6E5E",
-    "lastKnownWriteTime" : 1576341779,
-    "last_content_update" : 1576341779028,
+    "lastKnownWriteTime" : 1576346552,
+    "last_content_update" : 1576346552630,
     "path" : "~/hamapi/R/get_token.R",
     "project_path" : "R/get_token.R",
     "properties" : {
-        "cursorPosition" : "19,0",
+        "cursorPosition" : "5,0",
         "scrollLine" : "0"
     },
     "read_only" : false,

@@ -2,7 +2,7 @@
 #'
 #' @return It will return the token that user input
 #' @export
-#' @import svDialogs
+#' @importFrom svDialogs dlgInput
 #' @import utils
 
 get_token <- function(){

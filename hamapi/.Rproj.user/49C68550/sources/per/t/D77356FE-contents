@@ -1,6 +1,3 @@
-# source("/Users/Melodie/hamapi/R/get_artwork.R")
-# source("/Users/Melodie/hamapi/R/isclassification.R")
-# source("/Users/Melodie/hamapi/R/get_token.R")
 #' Which gallery has the most artwork object on a specified floor?
 #'
 #' @param floor The level of Harvard Art Museum. Valid floor from 1 to 3. Floor 4 is for office use.
@@ -13,7 +10,7 @@
 #' most_object(floor = 3, size = 2)
 #' most_object(floor = 2, size = 20)
 #' @export
-#' @import svDialogs
+#' @importFrom svDialogs dlgInput
 #' @import httr
 
 # setwd("/Users/Melodie/hamapi")
