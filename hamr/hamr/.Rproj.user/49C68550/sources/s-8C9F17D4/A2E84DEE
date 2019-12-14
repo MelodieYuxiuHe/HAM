@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576356380395.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3668142390",
+    "id" : "A2E84DEE",
+    "lastKnownWriteTime" : 1576357840,
+    "last_content_update" : 1576357840570,
+    "path" : "~/hamr/R/is_classification.R",
+    "project_path" : "R/is_classification.R",
+    "properties" : {
+        "cursorPosition" : "7,10",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
