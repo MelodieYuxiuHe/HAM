@@ -5,11 +5,10 @@
 #' @examples
 #' is_classification(class = 'Prints')
 #' is_classification(class = 'Music')
-#' is_classification()
 #' @export
 
 
-is_classification <- function(class="Prints"){
+is_classification <- function(class){
   classlist <- c('Prints', 'Albums', 'Amulets', 'Armor',
                  'Boxes', 'Calligraphy', 'Cameos', 'Fragments', 'Furnishings', 'Gems',
                  'Inscriptions', 'Jewelry', 'Mirrors', 'Mosaics', 'Paintings',

@@ -1,0 +1,22 @@
+---
+title: "install"
+subtitle: "hamapi: Collecting Artwork info from Harvard Art Museum"
+author: "He Yuxiu"
+date: "12/13/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{install}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+library(hamapi)
+```
+

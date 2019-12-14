@@ -4,7 +4,7 @@
 \alias{is_classification}
 \title{Check if the classification is a valid input.}
 \usage{
-is_classification(class = "Prints")
+is_classification(class)
 }
 \arguments{
 \item{class}{A classification of Harvard Art Museum website.}
@@ -18,5 +18,4 @@ Check if the classification is a valid input.
 \examples{
 is_classification(class = 'Prints')
 is_classification(class = 'Music')
-is_classification()
 }

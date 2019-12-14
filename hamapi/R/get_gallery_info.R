@@ -1,3 +1,7 @@
+# setwd("/Users/Melodie/hamapi")
+# source("/Users/Melodie/hamapi/R/get_artwork.R")
+# source("/Users/Melodie/hamapi/R/isclassification.R")
+# source("/Users/Melodie/hamapi/R/get_token.R")
 #' Get the gallery information on a specific floor
 #'
 #' @param floor The level of Harvard Art Museum. Valid floor from 1 to 3. Floor 4 is for office use.
@@ -12,7 +16,7 @@
 #' get_gallery_info(floor=2, size=14)
 #' get_gallery_info(floor=1, size=12)
 #' @export
-#' @importFrom svDialogs dlgInput
+#' @import svDialogs
 #' @import httr
 #' @import RCurl
 #' @import rvest

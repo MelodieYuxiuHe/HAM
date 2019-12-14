@@ -21,10 +21,10 @@ Imports:
     svDialogs,
     dplyr,
     rvest,
-    Rcpp,
     devtools,
     purrr,
     curl
+Remotes: hSciViews/svDialogs
 Suggests: 
     knitr,
     rmarkdown

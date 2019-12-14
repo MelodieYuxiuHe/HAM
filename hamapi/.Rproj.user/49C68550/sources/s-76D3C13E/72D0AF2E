@@ -1,24 +1,24 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1576220331786.000,
+    "created" : 1576338726709.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2411488563",
-    "id" : "DA915020",
-    "lastKnownWriteTime" : 1576254307,
-    "last_content_update" : 1576254307565,
+    "hash" : "0",
+    "id" : "72D0AF2E",
+    "lastKnownWriteTime" : 1576340642,
+    "last_content_update" : 1576340642290,
     "path" : "~/hamapi/R/isclassification.R",
     "project_path" : "R/isclassification.R",
     "properties" : {
-        "cursorPosition" : "20,8",
+        "cursorPosition" : "6,37",
         "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 6,
+    "relative_order" : 4,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

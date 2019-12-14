@@ -5,7 +5,6 @@
 #' @import svDialogs
 #' @import utils
 
-
 get_token <- function(){
   #library(svDialogs)
   token1 <- dlgInput("What's your Harvard Art Museum token? (without ' ' at the beginning and the end)",

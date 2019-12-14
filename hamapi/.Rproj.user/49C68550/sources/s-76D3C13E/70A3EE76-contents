@@ -1,3 +1,5 @@
+# source("/Users/Melodie/hamapi/R/isclassification.R")
+# source("/Users/Melodie/hamapi/R/get_token.R")
 #' Get the artworks information within a classification
 #'
 #' @param classification An art classification according to Harvard Art Museum website. The full list of available
@@ -10,13 +12,15 @@
 #' @examples
 #' get_artwork_info(classification='Prints', size=10)
 #' @export
-#' @importFrom svDialogs dlgInput
+#' @import svDialogs
 #' @import rvest
-#' @import Rcpp
 #' @import httr
 
+#setwd("/Users/Melodie/hamapi")
+#source("/Users/Melodie/hamapi/R/isclassification.R")
+#source("/Users/Melodie/hamapi/R/get_token.R")
 get_artwork_info <- function(classification='Prints', size=10){
-  library(httr)
+  #library(httr)
   #library(svDialogs)
   #token <- get_token()
   url <- list()
