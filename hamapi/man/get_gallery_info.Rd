@@ -4,10 +4,10 @@
 \alias{get_gallery_info}
 \title{Get the gallery information on a specific floor}
 \usage{
-get_gallery_info(floor1 = 2, size = 10)
+get_gallery_info(floor = 2, size = 10)
 }
 \arguments{
-\item{floor1}{The level of Harvard Art Museum. Valid floor from 1 to 3. Floor 4 is for office use.
+\item{floor}{The level of Harvard Art Museum. Valid floor from 1 to 3. Floor 4 is for office use.
 Default is set to be 2.}
 
 \item{size}{Size specifies how many gallries the user would like to know about. Please note that there are only

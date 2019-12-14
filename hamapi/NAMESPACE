@@ -3,6 +3,7 @@
 export(get_artwork_info)
 export(get_gallery_info)
 export(get_token)
+export(is_classification)
 export(most_object)
 import(RCurl)
 import(httr)

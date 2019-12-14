@@ -17,11 +17,11 @@ LazyData: true
 RoxygenNote: 7.0.2.9000
 Imports: 
     RCurl,
-    httr,
     svDialogs,
     rvest,
     devtools,
-    curl
+    curl,
+    httr
 Suggests: 
     knitr,
     rmarkdown
