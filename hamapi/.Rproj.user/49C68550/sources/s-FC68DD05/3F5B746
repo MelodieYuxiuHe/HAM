@@ -7,12 +7,12 @@
     "folds" : "",
     "hash" : "0",
     "id" : "3F5B746",
-    "lastKnownWriteTime" : 1576351036,
-    "last_content_update" : 1576351036637,
+    "lastKnownWriteTime" : 1576360282,
+    "last_content_update" : 1576360282330,
     "path" : "~/hamapi/R/get_token.R",
     "project_path" : "R/get_token.R",
     "properties" : {
-        "cursorPosition" : "16,0",
+        "cursorPosition" : "8,20",
         "scrollLine" : "0"
     },
     "read_only" : false,

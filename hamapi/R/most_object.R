@@ -9,9 +9,9 @@
 #' @examples
 #' most_object(floor = 3, size = 2)
 #' most_object(floor = 2, size = 20)
-#' @export
 #' @importFrom svDialogs dlgInput
 #' @import httr
+#' @export
 most_object <- function(floor=2, size=5){
   #library(httr)
   #library(svDialogs)

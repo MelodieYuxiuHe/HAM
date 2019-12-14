@@ -11,11 +11,11 @@
 #' @examples
 #' get_gallery_info(floor=2, size=14)
 #' get_gallery_info(floor=1, size=12)
-#' @export
 #' @importFrom svDialogs dlgInput
 #' @import httr
 #' @import RCurl
 #' @import rvest
+#' @export
 get_gallery_info <- function(floor=2, size=10){
   #library(httr)
   #library(RCurl)

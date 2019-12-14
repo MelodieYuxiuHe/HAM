@@ -18,4 +18,10 @@ museum.
 Allows user to obtain the information of which gallery has most artwork
 collections.
 
+(Please note that this package can only be downloaded to local folder
+and run the R project version. I will keep updating. Thank you for your
+patience.)
+
+Feel free to contact me at: <yuxiu.he@yahoo.com> regarding problems.
+
 Enjoy your art journey\!

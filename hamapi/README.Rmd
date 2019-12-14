@@ -24,4 +24,12 @@ Allows user to obtain information about gallery in each floor of the museum.
 
 Allows user to obtain the information of which gallery has most artwork collections.
 
+(Please note that this package can only be downloaded to local folder and run the R project version. 
+
+Please try download this package from https://github.com/MelodieYuxiuHe/HAM and use devtools::load_all()
+
+I will keep updating. Thank you for your patience.: ))
+
+Feel free to contact me at: yuxiu.he@yahoo.com regarding problems.
+
 Enjoy your art journey! 

@@ -16,6 +16,7 @@
 ~%2Fhamapi%2FLICENSE.md="D3E7BA4F"
 ~%2Fhamapi%2FR%2Fget_artwork.R="E4856F8F"
 ~%2Fhamapi%2FR%2Fget_artwork_byclassification.R="3250F660"
+~%2Fhamapi%2FR%2Fget_artwork_info.R="250CAAD7"
 ~%2Fhamapi%2FR%2Fget_gallery_info.R="1034BDAF"
 ~%2Fhamapi%2FR%2Fget_picture.R="F2CED2A9"
 ~%2Fhamapi%2FR%2Fget_picture2.R="A7CCB813"
