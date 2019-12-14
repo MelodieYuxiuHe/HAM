@@ -1,0 +1,38 @@
+---
+title: "FAQ"
+subtitle: "hamapi: Collecting Harvard Art Museum Data"
+author: "Yuxiu He"
+date: "12/13/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{FAQ}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+library(hamapi)
+```
+
+## The "function get_artwork_info" returns NULL...
+```{r}
+#> artresult <- get_artwork_info(classification='Prints', size=10)
+#>
+# NULL
+```
+
+#### Solutions
+
+1. Make sure you have run the function token <- get_token() AND assign("token", token, envir = globalenv())
+1. Make sure your input of token is correct
+1. Update the **{httr}** package
+1. Update R
+
+Good luck!

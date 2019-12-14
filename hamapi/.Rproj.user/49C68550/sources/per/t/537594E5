@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576254167985.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2096155673",
+    "id" : "537594E5",
+    "lastKnownWriteTime" : 1576263885,
+    "last_content_update" : 1576263885938,
+    "path" : "~/hamapi/R/get_token.R",
+    "project_path" : "R/get_token.R",
+    "properties" : {
+        "cursorPosition" : "13,37",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
