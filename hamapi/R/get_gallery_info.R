@@ -16,6 +16,7 @@
 #' @import httr
 #' @import RCurl
 #' @import rvest
+
 get_gallery_info <- function(floor1=2, size=10){
   #library(httr)
   #library(RCurl)

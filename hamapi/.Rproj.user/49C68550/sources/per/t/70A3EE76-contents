@@ -13,7 +13,9 @@
 #' @importFrom svDialogs dlgInput
 #' @import rvest
 #' @import httr
+
 get_artwork_info <- function(classification='Prints', size=10){
+  source('isclassification.R')
   #library(httr)
   #library(svDialogs)
   #token <- get_token()

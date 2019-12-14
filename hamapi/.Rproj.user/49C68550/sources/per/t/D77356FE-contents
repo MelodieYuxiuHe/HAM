@@ -12,10 +12,12 @@
 #' @export
 #' @importFrom svDialogs dlgInput
 #' @import httr
+
 most_object <- function(floor=2, size=5){
   #library(httr)
   #library(svDialogs)
   #token <- get_token()
+  source('get_gallery_info.R')
   galleryr <- get_gallery_info(floor=floor, size=size)
   obcount <- as.vector(unlist(galleryr$Objectcount))
   #maxob <- max(obcount)
