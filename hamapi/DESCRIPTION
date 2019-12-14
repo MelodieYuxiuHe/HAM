@@ -19,12 +19,9 @@ Imports:
     RCurl,
     httr,
     svDialogs,
-    dplyr,
     rvest,
     devtools,
-    purrr,
     curl
-Remotes: hSciViews/svDialogs
 Suggests: 
     knitr,
     rmarkdown
