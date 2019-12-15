@@ -12,6 +12,7 @@
 #' get_picture(size=10, numberp = 2, classification = 'Vessels')
 #' get_picture(size=5, numberp = 2, classification = 'Prints')
 #' @importFrom svDialogs dlgInput
+#' @importFrom svDialogs dlg_message
 #' @import httr
 #' @import RCurl
 #' @import rvest

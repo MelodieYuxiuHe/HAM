@@ -5,11 +5,11 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "1773696923",
     "id" : "C936C886",
     "lastKnownWriteTime" : 1576382070,
     "last_content_update" : 1576382070369,
-    "path" : "~/Documents/QMSS5072/He_Yuxiu/Final_Project/hamapi/R/get_gallery_info.R",
+    "path" : "~/hamapi/R/get_gallery_info.R",
     "project_path" : "R/get_gallery_info.R",
     "properties" : {
         "cursorPosition" : "25,3",
