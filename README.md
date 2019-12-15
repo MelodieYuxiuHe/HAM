@@ -19,7 +19,7 @@ Allows user to download pictures from Harvard Art Museum website.
 
 Please try download this package from
 <https://github.com/MelodieYuxiuHe/HAM> or use
-devtools::install\_github("MelodieYuxiuHe/HAM/hamapi) to install.
+devtools::install\_github("MelodieYuxiuHe/HAM/hamapi") to install.
 
 I will keep updating. : )
 
