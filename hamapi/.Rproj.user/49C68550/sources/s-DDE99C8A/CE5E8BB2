@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2479998324",
+    "hash" : "1487662971",
     "id" : "CE5E8BB2",
-    "lastKnownWriteTime" : 1576387210,
-    "last_content_update" : 1576387210915,
+    "lastKnownWriteTime" : 1576388030,
+    "last_content_update" : 1576388030688,
     "path" : "~/hamapi/README.Rmd",
     "project_path" : "README.Rmd",
     "properties" : {
-        "cursorPosition" : "28,148",
-        "scrollLine" : "13"
+        "cursorPosition" : "18,250",
+        "scrollLine" : "2"
     },
     "read_only" : false,
     "read_only_alternatives" : [
