@@ -9,17 +9,19 @@ object id, period, century, culture, division, corresponding website
 url, image url, classification, department) by specifying the
 classification of artworks the user interested in.
 
-Allows user to obtain information about gallery in each floor of the
+Allows user to obtain information about gallery on each floor of the
 museum.
 
-Allows user to obtain the information of which gallery has most artwork
-collections.
+Allows user to obtain the information of which gallery has the most
+artwork collections.
 
 Allows user to download pictures from Harvard Art Museum website.
 
-Please try download this package from
-<https://github.com/MelodieYuxiuHe/HAM> and use
-devtools::install\_github("MelodieYuxiuHe/HAM/hamapi) to install.
+Please use the following code to install.
+
+``` r
+#devtools::install_github("MelodieYuxiuHe/HAM/hamapi") 
+```
 
 I will keep updating. : )
 
