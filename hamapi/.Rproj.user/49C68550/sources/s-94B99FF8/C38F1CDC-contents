@@ -391,19 +391,11 @@ most_object(floor = 2, size = 20)
 
 7. get pictures from the Harvard Art Museum website
 ```{r}
-get_picture <- function(classification = 'Prints', size=10, numberp=6){
+get_picture <- function(classification = 'Prints', number=6){
   #library(httr)
   #library(RCurl)
   #library(svDialogs)
-  if (numberp > size){
-    stop(
-      sprintf(
-        "You cannot download pictures more than your input size"
-      ),
-      call. = FALSE
-    )
-  }
-   if (numberp > 5){
+   if (number > 5){
     continue <- dlg_message("Your mac/pc will be flooded by pictures. Do you want to continue?", "yesno")$res
     if (continue == 'no'){
       stop(
@@ -415,7 +407,7 @@ get_picture <- function(classification = 'Prints', size=10, numberp=6){
     }
     if (continue == 'yes'){
       if (exists("token")==FALSE){
-        message("please get your token thorough `token <- get_token()` and input token=token in this function : )")
+        message("please get your token thorough `token <- get_token()`: )")
       }
       else{
         resultform <- get_artwork_info(classification=classification, size=size, token=token)
@@ -423,7 +415,7 @@ get_picture <- function(classification = 'Prints', size=10, numberp=6){
         imageurls <- as.vector(unlist(resultform[, 10]))
         nameimage <- list()
         print(url)
-        for (i in 1:numberp){
+        for (i in 1:number){
           nameimage[i] <- paste(objectid1[[i]],'.jpeg',sep="")
           download.file(url = as.character(imageurls[i]), destfile = as.character(nameimage[i]),
                         quiet = FALSE, mode="w",cacheOK=TRUE)
@@ -432,16 +424,16 @@ get_picture <- function(classification = 'Prints', size=10, numberp=6){
       }
     }
   }
-  if (numberp <= 5){
+  if (number <= 5){
     if (exists("token")==FALSE){
       message("please get your token thorough `token <- get_token()` and input token=token in this function : )")
     }
     else{
-    resultform <- get_artwork_info(classification=classification, size=size, token=token)
+    resultform <- get_artwork_info(classification=classification, size=number, token=token)
     objectid1 <- resultform[,8]
     imageurls <- as.vector(unlist(resultform[, 10]))
     nameimage <- list()
-    for (i in 1:numberp){
+    for (i in 1:number){
       nameimage[i] <- paste(objectid1[[i]],'.jpeg',sep="")
       if (length(as.vector(unlist(nameimage[i]))) != 1){
         message("this item may not have an image")
@@ -456,7 +448,8 @@ get_picture <- function(classification = 'Prints', size=10, numberp=6){
  }
 }
 
+
 ```
 
-Thank you for your time! If there are any questions, please feel free to contact me at yh3137@columbia.edu.
+Thank you for your time! If there are any questions, please feel free to contact me at yuxiu.he@yahoo.com.
 Hope you enjoy the artwork : )
