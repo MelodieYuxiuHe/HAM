@@ -1,0 +1,38 @@
+"0","```r
+library(httr)
+getla <- GET(endpoint)
+x <- content(getla)
+```"
+"1","Parsed with column specification:
+cols(
+  .default = col_character(),
+  date_rptd = [34mcol_datetime(format = \"\")[39m,
+  date_occ = [34mcol_datetime(format = \"\")[39m,
+  part_1_2 = [32mcol_double()[39m,
+  crm_cd = [32mcol_double()[39m,
+  vict_age = [32mcol_double()[39m,
+  premis_cd = [32mcol_double()[39m,
+  weapon_used_cd = [32mcol_double()[39m,
+  crm_cd_1 = [32mcol_double()[39m,
+  crm_cd_2 = [32mcol_double()[39m,
+  crm_cd_3 = [33mcol_logical()[39m,
+  crm_cd_4 = [33mcol_logical()[39m,
+  lat = [32mcol_double()[39m,
+  lon = [32mcol_double()[39m
+)
+See spec(...) for full column specifications.
+"
+"0","```r
+df <- as.data.frame(x)
+
+dim(df)
+```"
+"1","[1] 1000   28
+"
+"0","```r
+table(df$area)  
+```"
+"1","
+ 01  03  04  06  11  13  14 
+989   1   1   1   1   6   1 
+"

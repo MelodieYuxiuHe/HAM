@@ -4,7 +4,7 @@
 \alias{get_gallery_info}
 \title{Get the gallery information on a specific floor}
 \usage{
-get_gallery_info(floor = 2, size = 10)
+get_gallery_info(floor = 2, size = 10, token = token)
 }
 \arguments{
 \item{floor}{The level of Harvard Art Museum. Valid floor from 1 to 3. Floor 4 is for office use.
@@ -13,6 +13,8 @@ Default is set to be 2.}
 \item{size}{Size specifies how many gallries the user would like to know about. Please note that there are only
 20 galleries in floor 1, 24 galleries in floor 2 and 12 galleries in floor 3. Input an input size that is
 larger than the current floor will lead to an error warning. Default is set to be 10.}
+
+\item{token}{A variable from token <- get_token() function. Please run token <- get_token() before using this function}
 }
 \value{
 a list of gallery information under a specific floor. The information includes gallery name, theme,

@@ -1,0 +1,5 @@
+"0","```r
+output <- data.frame('latitude' = lanla[1:50], 'longitude' = lonla[1:50], 'location' = region[1:50], 'location_revgeo' = unlist(names))
+
+as.data.frame(output)
+```"

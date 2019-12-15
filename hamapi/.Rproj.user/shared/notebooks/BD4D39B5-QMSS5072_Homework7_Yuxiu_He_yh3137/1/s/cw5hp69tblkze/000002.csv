@@ -1,0 +1,35 @@
+"0","```r
+claresult_25M <- GET(endpoint, query = list('$limit' = '10000',
+                                '$$app_token' = Sys.getenv(\"LACRIME_APP_TOKEN\"), vict_age = 25, vict_sex = 'M'))
+
+status_code(claresult_25M)
+```"
+"1","[1] 200
+"
+"0","```r
+#la25M <- as.data.frame(content(claresult_25M))
+laresult <- content(claresult_25M)
+```"
+"1","Parsed with column specification:
+cols(
+  .default = col_character(),
+  dr_no = [32mcol_double()[39m,
+  date_rptd = [34mcol_datetime(format = \"\")[39m,
+  date_occ = [34mcol_datetime(format = \"\")[39m,
+  part_1_2 = [32mcol_double()[39m,
+  crm_cd = [32mcol_double()[39m,
+  vict_age = [32mcol_double()[39m,
+  premis_cd = [32mcol_double()[39m,
+  weapon_used_cd = [32mcol_double()[39m,
+  crm_cd_1 = [32mcol_double()[39m,
+  crm_cd_2 = [32mcol_double()[39m,
+  crm_cd_3 = [32mcol_double()[39m,
+  crm_cd_4 = [33mcol_logical()[39m,
+  lat = [32mcol_double()[39m,
+  lon = [32mcol_double()[39m
+)
+See spec(...) for full column specifications.
+"
+"0","```r
+laresult
+```"

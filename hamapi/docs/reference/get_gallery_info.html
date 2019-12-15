@@ -101,6 +101,9 @@
       <a href="../articles/function_detail.html">my-vignette</a>
     </li>
     <li>
+      <a href="../articles/install.html">install</a>
+    </li>
+    <li>
       <a href="../articles/intro.html">intro</a>
     </li>
   </ul>
@@ -130,7 +133,7 @@
     <p>Get the gallery information on a specific floor</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_gallery_info</span>(<span class='kw'>floor</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>)</pre>
+    <pre class="usage"><span class='fu'>get_gallery_info</span>(<span class='kw'>floor</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>token</span> <span class='kw'>=</span> <span class='no'>token</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,6 +149,10 @@ Default is set to be 2.</p></td>
 20 galleries in floor 1, 24 galleries in floor 2 and 12 galleries in floor 3. Input an input size that is
 larger than the current floor will lead to an error warning. Default is set to be 10.</p></td>
     </tr>
+    <tr>
+      <th>token</th>
+      <td><p>A variable from token &lt;- get_token() function. Please run token &lt;- get_token() before using this function</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -155,8 +162,7 @@ larger than the current floor will lead to an error warning. Default is set to b
     the corresponding url on Harvard Art Museum website.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_gallery_info</span>(<span class='kw'>floor</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>size</span><span class='kw'>=</span><span class='fl'>14</span>)
-<span class='fu'>get_gallery_info</span>(<span class='kw'>floor</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>size</span><span class='kw'>=</span><span class='fl'>12</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>get_gallery_info</span>(<span class='kw'>floor</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>size</span><span class='kw'>=</span><span class='fl'>14</span>)</div><div class='output co'>#&gt; <span class='message'>please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></div><div class='input'><span class='fu'>get_gallery_info</span>(<span class='kw'>floor</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>size</span><span class='kw'>=</span><span class='fl'>12</span>)</div><div class='output co'>#&gt; <span class='message'>please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>

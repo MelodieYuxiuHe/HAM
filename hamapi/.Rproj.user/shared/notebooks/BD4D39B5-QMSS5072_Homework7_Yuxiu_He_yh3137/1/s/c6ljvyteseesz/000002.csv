@@ -1,0 +1,6 @@
+"0","```r
+claresult <- GET(endpoint, query = list('$limit' = '10000',
+                                '$$app_token' = Sys.getenv(\"LACRIME_APP_TOKEN\")))
+
+status_code(claresult)
+```"

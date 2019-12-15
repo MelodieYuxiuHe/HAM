@@ -1,0 +1,20 @@
+"0","```r
+dfla25 <- subset(laresult, select = c(location, lat, lon))
+
+library(tidyr)
+lanla <- laresult$lat
+lonla <- laresult$lon
+region <- laresult$location
+
+URL3 <- \"https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=\"
+URL4 <- \"&lon=\"
+
+names <- list()
+for(i in 1:50){
+  directory_url1 <- paste(URL3, lanla[i], URL4, lonla[i], sep = \"\")
+  osresult <- GET(directory_url1)
+  Sys.sleep(0.1)
+  apiresponse <- content(osresult)
+  names[i] <- apiresponse$display_name
+}
+```"

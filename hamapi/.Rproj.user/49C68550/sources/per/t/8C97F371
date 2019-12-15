@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576383413080.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1659563939",
+    "id" : "8C97F371",
+    "lastKnownWriteTime" : 1576386373,
+    "last_content_update" : 1576386373421,
+    "path" : "~/hamapi/R/get_picture.R",
+    "project_path" : "R/get_picture.R",
+    "properties" : {
+        "cursorPosition" : "83,0",
+        "scrollLine" : "60",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -4,7 +4,7 @@
 \alias{get_artwork_info}
 \title{Get the artworks information within a classification}
 \usage{
-get_artwork_info(classification = "Prints", size = 10)
+get_artwork_info(classification = "Prints", size = 10, token = token)
 }
 \arguments{
 \item{classification}{An art classification according to Harvard Art Museum website. The full list of available
@@ -13,6 +13,8 @@ classification is: 'Prints', 'Albums', 'Amulets', 'Armor', 'Boxes', 'Calligraphy
 'Rubbings', 'Sculpture', 'Seals', 'Tablets', 'Tokens', 'Vessels'. Default is set to be 'Prints'.}
 
 \item{size}{Size specifies how many pieces of artwork the user would like to get. Default is set to be 10.}
+
+\item{token}{A variable from token <- get_token() function. Please run token <- get_token() before using this function}
 }
 \value{
 a list of artwork information under a specific classification. The information includes title, century, period,

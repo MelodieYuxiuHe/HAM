@@ -1,0 +1,6 @@
+"0","#Please input your token. (WITHOUT THE ' ')"
+"0",""
+"0","token <- get_token()"
+"0",""
+"0","#IMPORTANT: plese excute both lines when using this package. Otherwise the token is not specified as a global variable. Thank you!"
+"0","#Congrats! Your token is now saved as a global variable and can be used in other functions in this package. "

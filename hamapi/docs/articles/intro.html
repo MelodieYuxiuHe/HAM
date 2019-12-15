@@ -63,6 +63,9 @@
       <a href="../articles/function_detail.html">my-vignette</a>
     </li>
     <li>
+      <a href="../articles/install.html">install</a>
+    </li>
+    <li>
       <a href="../articles/intro.html">intro</a>
     </li>
   </ul>
@@ -102,12 +105,11 @@
 <a href="#get_token" class="anchor"></a>get_token()</h3>
 <p>This function will send a pop-up window to ask you for your token.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">#Please input your token. (WITHOUT THE ' ')</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#get_token()</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">token &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_token.html">get_token</a></span>()</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/assign.html">assign</a></span>(<span class="st">"token"</span>, token, <span class="dt">envir =</span> <span class="kw"><a href="https://rdrr.io/r/base/environment.html">globalenv</a></span>())</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#IMPORTANT: plese excute both lines when using this package. Otherwise the token is not specified as a global variable. Thank you!</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#Congrats! Your token is now saved as a global variable and can be used in other functions in this package. </span></a></code></pre></div>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#IMPORTANT: plese excute both lines when using this package. Otherwise the token is not specified as a global variable. Thank you!</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#Congrats! Your token is now saved as a global variable and can be used in other functions in this package. </span></a></code></pre></div>
 </div>
 <div id="is_classificationclass" class="section level3">
 <h3 class="hasAnchor">
@@ -144,22 +146,26 @@
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#The function inside this function (is_classification) will let you know that this is not valid.</span></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10"> </a>
 <a class="sourceLine" id="cb3-11" data-line-number="11">  <span class="dt">size=</span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#This is the number of artworks that you want to get from this function. The limit here is set to be 100. </span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#If you have an input of size &gt; 100, it will stop and produce an error "API limit exceeded".</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#In some cases, the API may fail to return valid information. If the status code is not 200, this function will stop and produce "Harvard Art Museum request failed"</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#This is the number of artworks that you want to get from this function. The limit here is set to be 100. </span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#If you have an input of size &gt; 100, it will stop and produce an error "API limit exceeded".</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#You should have already generated a global variable of token</span></a>
 <a class="sourceLine" id="cb3-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17">artresult</a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#Now you may see the complete result from this function. With the input "Prints" and "size=10". You get a list which contains information about the 10 artworks under the category of "Print". </span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#Different version of R Studio may display it differently. Please open it on the right top of R Stuio if it cannot be fully displayed. : )</span></a>
-<a class="sourceLine" id="cb3-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#You will have information about the title, century, period, culture, division, classification, department, object id, the corresponding URL on the website and the corresponding image url of the artwork.</span></a>
-<a class="sourceLine" id="cb3-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">#For example, you can see for "Women and Male Attendant at the Shore (Enoshima?)", it is completed in 18th century in Edo period, 1615-1868. It is under Japanese culture. It belongs to the Asian and Mediterranean Art division. It belongs to Department of Asian Art. The url is also in the result "https://www.harvardartmuseums.org/collections/object/203554". Please feel free to browse the website if your are interested in. </span></a></code></pre></div>
+<a class="sourceLine" id="cb3-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#In some cases, the API may fail to return valid information. If the status code is not 200, this function will stop and produce "Harvard Art Museum request failed"</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">artresult</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#Now you may see the complete result from this function. With the input "Prints" and "size=10". You get a list which contains information about the 10 artworks under the category of "Print". </span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">#Different version of R Studio may display it differently. Please open it on the right top of R Stuio if it cannot be fully displayed. : )</span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="co">#You will have information about the title, century, period, culture, division, classification, department, object id, the corresponding URL on the website and the corresponding image url of the artwork.</span></a>
+<a class="sourceLine" id="cb3-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#For example, you can see for "Women and Male Attendant at the Shore (Enoshima?)", it is completed in 18th century in Edo period, 1615-1868. It is under Japanese culture. It belongs to the Asian and Mediterranean Art division. It belongs to Department of Asian Art. The url is also in the result "https://www.harvardartmuseums.org/collections/object/203554". Please feel free to browse the website if your are interested in. </span></a></code></pre></div>
 <p>example</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/get_artwork_info.html">get_artwork_info</a></span>(<span class="dt">classification=</span><span class="st">'Prints'</span>, <span class="dt">size=</span><span class="dv">20</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/get_artwork_info.html">get_artwork_info</a></span>(<span class="dt">classification=</span><span class="st">'Prints'</span>, <span class="dt">size=</span><span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></a></code></pre></div>
 </div>
 <div id="get_picture" class="section level3">
 <h3 class="hasAnchor">
@@ -167,61 +173,25 @@
 <p>Get the image from the result of get_artwork_info function.</p>
 <p>This is my favourite function in this package. It will automatically download the picture under the category your specified.</p>
 <p>Your input will be classification (classification), size (size), and the number of picture you want to download (numberp).</p>
-<p>This function will return error if you are trying to download picture that is more than your search result. It will result in a pop-up window ask “Your mac/pc will be flooded by pictures. Do you want to continue?” when you are trying to download more than 5 pictures from the website. If your answer is “Yes”. It will continue to download. After the download, you will see a “Hooray! finished!” If your answer is “No”. It will ask you to try a smaller number.</p>
-<p>The reason that I commented this function is that due to a system error. It cannot pass the check(). However, it works in a R markdown file. Just library(utils), library(httr) and library(hamapi), running the following function. You will get pictures.</p>
-<p>Sorry for the inconvenience. I really love this function and feel pity not to include it in the package. Please feel free to play around with it if you are interested in. I will try to fix this problem asap. : )</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">#library(utils)</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#library(httr)</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#get_picture &lt;- function(classification = 'Prints', size=10, numberp=7){</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#   if (numberp &gt; size){</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#     stop(</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#       sprintf(</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#         "You cannot download pictures more than your input size"</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#       ),</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#       call. = FALSE</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#     )</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#   }</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#   if (numberp &gt; 5){</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#     continue &lt;- dlg_message("Your mac/pc will be flooded by pictures. Do you want to continue?", "yesno")$res</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#     if (continue == 'no'){</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#       stop(</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#         sprintf(</span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#           "Try a smaller number : )"</span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#         ),</span></a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#         call. = FALSE</span></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#       )</span></a>
-<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#     }</span></a>
-<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#     if (continue == 'yes'){</span></a>
-<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#       resultform &lt;- get_artwork_info(classification=classification, size=size)</span></a>
-<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#       objectid1 &lt;- resultform[,8]</span></a>
-<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#       imageurls &lt;- as.vector(unlist(resultform[, 10]))</span></a>
-<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#       nameimage &lt;- list()</span></a>
-<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#       for (i in 1:numberp){</span></a>
-<a class="sourceLine" id="cb5-28" data-line-number="28"><span class="co">#         nameimage[i] &lt;- paste(objectid1[[i]],'.jpeg',sep="")</span></a>
-<a class="sourceLine" id="cb5-29" data-line-number="29"><span class="co">#         download.file(url = as.character(imageurls[i]), destfile = as.character(nameimage[i]),</span></a>
-<a class="sourceLine" id="cb5-30" data-line-number="30"><span class="co">#         quiet = FALSE, mode="w",cacheOK=TRUE)</span></a>
-<a class="sourceLine" id="cb5-31" data-line-number="31"><span class="co">#         #curl_download(as.character(imageurls[i]), destfile = as.character(nameimage[i]),</span></a>
-<a class="sourceLine" id="cb5-32" data-line-number="32"><span class="co">#          #             quiet = FALSE, handle = new_handle())</span></a>
-<a class="sourceLine" id="cb5-33" data-line-number="33"><span class="co">#       }</span></a>
-<a class="sourceLine" id="cb5-34" data-line-number="34"><span class="co">#       print("Hooray! finished")</span></a>
-<a class="sourceLine" id="cb5-35" data-line-number="35"><span class="co">#     }</span></a>
-<a class="sourceLine" id="cb5-36" data-line-number="36"><span class="co">#   }</span></a>
-<a class="sourceLine" id="cb5-37" data-line-number="37"><span class="co">#   if (numberp &lt;= 5){</span></a>
-<a class="sourceLine" id="cb5-38" data-line-number="38"><span class="co">#     resultform &lt;- get_artwork_info(classification=classification, size=size)</span></a>
-<a class="sourceLine" id="cb5-39" data-line-number="39"><span class="co">#     objectid1 &lt;- resultform[,8]</span></a>
-<a class="sourceLine" id="cb5-40" data-line-number="40"><span class="co">#     imageurls &lt;- as.vector(unlist(resultform[, 10]))</span></a>
-<a class="sourceLine" id="cb5-41" data-line-number="41"><span class="co">#     for (i in 1:numberp){</span></a>
-<a class="sourceLine" id="cb5-42" data-line-number="42"><span class="co">#       nameimage &lt;- list()</span></a>
-<a class="sourceLine" id="cb5-43" data-line-number="43"><span class="co">#       nameimage[i] &lt;- paste(objectid1[[i]],'.jpeg',sep="")</span></a>
-<a class="sourceLine" id="cb5-44" data-line-number="44"><span class="co">#       download.file(imageurls[i], destfile = as.character(nameimage[i]),</span></a>
-<a class="sourceLine" id="cb5-45" data-line-number="45"><span class="co">#                     quiet = FALSE, mode="w",cacheOK=TRUE)</span></a>
-<a class="sourceLine" id="cb5-46" data-line-number="46"><span class="co">#     }</span></a>
-<a class="sourceLine" id="cb5-47" data-line-number="47"><span class="co">#     print("Hooray! finished")</span></a>
-<a class="sourceLine" id="cb5-48" data-line-number="48"><span class="co">#   }</span></a>
-<a class="sourceLine" id="cb5-49" data-line-number="49"><span class="co"># }</span></a></code></pre></div>
+<p>Plese “uncomment” the 108, 109, 113 and 120 lines below. Because this function automatically download pictures and need a valid token. I commented it. It should work.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">#get_picture(</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="co">#classification = 'Prints', </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  </a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="co">#This is the HAM available classification.</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  </a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  <span class="co">#size=10,</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  <span class="co">#This is the number of artworks that you want to get from this function. The limit here is set to be 100. </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="co">#If you have an input of size &gt; 100, it will stop and produce an error "API limit exceeded".</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="co">#You should have already generated a global variable of token</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="co">#This function will return error if you are trying to download picture that is more than your search result.</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">  </a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">  <span class="co">#numberp=2)</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">  <span class="co">#This is the number of pictures that you want to download from the website. When you are trying to download more than 5 pictures from the website. If your answer is "Yes". It will continue to download. After the download, you will see a "Hooray! finished!" If your answer is "No". It will ask you to try a smaller number.</span></a></code></pre></div>
 <p>example</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">#get_picture(size=10, numberp = 2, classification = 'Vessels')</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#get_picture(size=5, numberp = 2, classification = 'Prints')</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#get_picture(size=5, numberp = 6, classification = 'Prints')</span></a></code></pre></div>
 </div>
 <div id="get_gallery_info" class="section level3">
 <h3 class="hasAnchor">
@@ -238,27 +208,33 @@
 <a class="sourceLine" id="cb7-9" data-line-number="9">  </a>
 <a class="sourceLine" id="cb7-10" data-line-number="10">  <span class="co">#This is the number of galleries that you want to get from this floor. Different floor has different number of galleries. The function will let you know if your input is not a valid combination. For example, if you input floor = 2 and size = 50, it will return "Second floor only have 24 galleries". The combinations are (Floor1 20, Floor2 24, Floor 12)</span></a>
 <a class="sourceLine" id="cb7-11" data-line-number="11">  <span class="dt">size=</span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#In some cases, the API may fail to return valid information. If the status code is not 200, this function will stop and produce "Harvard Art Museum request failed"</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#Now please have a look of the result. </span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16">galleryr</a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">  <span class="co">#You should have already generated a global variable of token</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">#In some cases, the API may fail to return valid information. If the status code is not 200, this function will stop and produce "Harvard Art Museum request failed"</span></a>
 <a class="sourceLine" id="cb7-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co">#Now you may see the complete result from this function. With the input "floor = 2" and "size=10". You get a list which contains information about the 10 galleries on the second floor. </span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb7-21" data-line-number="21"><span class="co">#Different version of R Studio may display it differently. Please open it on the right top of R Stuio if it cannot be fully displayed. : )</span></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co">#Now please have a look of the result. </span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">galleryr</a>
+<a class="sourceLine" id="cb7-21" data-line-number="21"><span class="co">#&gt; NULL</span></a>
 <a class="sourceLine" id="cb7-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb7-23" data-line-number="23"><span class="co">#You will have information about the gallery name, theme, galleryid, floor, the number of object in the gallery(objectcount), gallery text description (labeltext), the corresponding URL on the website.</span></a>
+<a class="sourceLine" id="cb7-23" data-line-number="23"><span class="co">#Now you may see the complete result from this function. With the input "floor = 2" and "size=10". You get a list which contains information about the 10 galleries on the second floor. </span></a>
 <a class="sourceLine" id="cb7-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb7-25" data-line-number="25"><span class="co">#For example, you can see for "European and American Art, 17th–19th century", the theme is "The Emergence of Romanticism in Early Nineteenth-Century France". It is on the second floor with 22 objects inside it. </span></a>
+<a class="sourceLine" id="cb7-25" data-line-number="25"><span class="co">#Different version of R Studio may display it differently. Please open it on the right top of R Stuio if it cannot be fully displayed. : )</span></a>
 <a class="sourceLine" id="cb7-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb7-27" data-line-number="27"><span class="co">#The text description is "A sustained commitment to the tenets of neoclassicism persisted after the French Revolution, and artists such as Jacques-Louis David and his school continued to adhere to the sculptural and archaeological approach to form that they had helped popularize in the previous century. However, their style was soon challenged by romanticism, which proposed a radically different kind of representation. Its development over the first half of the nineteenth century produced myriad reformulations and contradictions in its definition. But at its height, romantic painting was characterized by a bold and vibrant palette and by loose and expressive brushstrokes that often obscured any careful preparatory drawing beneath the composition. Nature, as a powerful force and stimulant for extreme human emotions, was a favored focus, as were literary subjects and the poetry of William Shakespeare and Lord Byron. The artist was viewed as a unique conduit for those elements through his work. The years 1823–24 marked a watershed moment for romanticism in France, with the publication of the first part of Stendhal’s Racine and Shakespeare, which enumerated the limitations of the classicist tradition, and with the Salon of 1824, where critics compared history paintings by Jean-Auguste-Dominique Ingres and Eugène Delacroix, and there, too, found classicism wanting. Adopting the terminology of the German critic Friedrich von Schlegel, who had earlier pitted romanticism against classicism, critics heralded Ingres as a classicist and Delacroix as a romantic—figureheads of antithetical styles, even though many of the same concerns underpinned both artists’ approaches. Delacroix, in fact, claimed he was not a “romantic” at all."</span></a>
+<a class="sourceLine" id="cb7-27" data-line-number="27"><span class="co">#You will have information about the gallery name, theme, galleryid, floor, the number of object in the gallery(objectcount), gallery text description (labeltext), the corresponding URL on the website.</span></a>
 <a class="sourceLine" id="cb7-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb7-29" data-line-number="29"><span class="co">#The url is also in the result "https://www.harvardartmuseums.org/visit/floor-plan/2/2200" Please feel free to browse the website if your are interested in. </span></a></code></pre></div>
+<a class="sourceLine" id="cb7-29" data-line-number="29"><span class="co">#For example, you can see for "European and American Art, 17th–19th century", the theme is "The Emergence of Romanticism in Early Nineteenth-Century France". It is on the second floor with 22 objects inside it. </span></a>
+<a class="sourceLine" id="cb7-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb7-31" data-line-number="31"><span class="co">#The text description is "A sustained commitment to the tenets of neoclassicism persisted after the French Revolution, and artists such as Jacques-Louis David and his school continued to adhere to the sculptural and archaeological approach to form that they had helped popularize in the previous century. However, their style was soon challenged by romanticism, which proposed a radically different kind of representation. Its development over the first half of the nineteenth century produced myriad reformulations and contradictions in its definition. But at its height, romantic painting was characterized by a bold and vibrant palette and by loose and expressive brushstrokes that often obscured any careful preparatory drawing beneath the composition. Nature, as a powerful force and stimulant for extreme human emotions, was a favored focus, as were literary subjects and the poetry of William Shakespeare and Lord Byron. The artist was viewed as a unique conduit for those elements through his work. The years 1823–24 marked a watershed moment for romanticism in France, with the publication of the first part of Stendhal’s Racine and Shakespeare, which enumerated the limitations of the classicist tradition, and with the Salon of 1824, where critics compared history paintings by Jean-Auguste-Dominique Ingres and Eugène Delacroix, and there, too, found classicism wanting. Adopting the terminology of the German critic Friedrich von Schlegel, who had earlier pitted romanticism against classicism, critics heralded Ingres as a classicist and Delacroix as a romantic—figureheads of antithetical styles, even though many of the same concerns underpinned both artists’ approaches. Delacroix, in fact, claimed he was not a “romantic” at all."</span></a>
+<a class="sourceLine" id="cb7-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb7-33" data-line-number="33"><span class="co">#The url is also in the result "https://www.harvardartmuseums.org/visit/floor-plan/2/2200" Please feel free to browse the website if your are interested in. </span></a></code></pre></div>
 <p>example</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/get_gallery_info.html">get_gallery_info</a></span>(<span class="dt">floor=</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">14</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="../reference/get_gallery_info.html">get_gallery_info</a></span>(<span class="dt">floor=</span><span class="dv">1</span>, <span class="dt">size=</span><span class="dv">12</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="../reference/get_gallery_info.html">get_gallery_info</a></span>(<span class="dt">floor=</span><span class="dv">1</span>, <span class="dt">size=</span><span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></a></code></pre></div>
 </div>
 <div id="most_object" class="section level3">
 <h3 class="hasAnchor">
@@ -268,9 +244,17 @@
 <a class="sourceLine" id="cb9-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#There are 2 input variables: The classification and size</span></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#most_object(floor=2, size=24)</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#Run this chunk, you will know that among the 24 galleries on the second floor. "The European and American Art, 17th–19th century" has the most artworks collections.</span></a></code></pre></div>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="kw"><a href="../reference/most_object.html">most_object</a></span>(<span class="dt">floor=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">#&gt; please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt; get your token and check floor input</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#Run this chunk, you will know that among the 24 galleries on the second floor. "The European and American Art, 17th–19th century" has the most artworks collections.</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/most_object.html">most_object</a></span>(<span class="dt">floor =</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co">#&gt; please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt; get your token and check floor input</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="kw"><a href="../reference/most_object.html">most_object</a></span>(<span class="dt">floor =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">#&gt; please get your token thorough `token &lt;- get_token()` and input token=token in this function : )</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">#&gt; get your token and check floor input</span></a></code></pre></div>
 </div>
 <div id="extra-data" class="section level3">
 <h3 class="hasAnchor">

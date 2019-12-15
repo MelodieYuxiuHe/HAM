@@ -63,6 +63,9 @@
       <a href="../articles/function_detail.html">my-vignette</a>
     </li>
     <li>
+      <a href="../articles/install.html">install</a>
+    </li>
+    <li>
       <a href="../articles/intro.html">intro</a>
     </li>
   </ul>
@@ -94,11 +97,7 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(hamapi)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#&gt; Warning: replacing previous import 'Rcpp::prompt' by 'utils::prompt' when</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#&gt; loading 'hamapi'</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt; Warning: replacing previous import 'Rcpp::.DollarNames' by 'utils::.DollarNames'</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt; when loading 'hamapi'</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(hamapi)</a></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>First, please input your token in the pop-up window.</li>
 </ol>
@@ -508,6 +507,73 @@
 <a class="sourceLine" id="cb12-66" data-line-number="66"><span class="co">#&gt; Warning in max(as.numeric(obcount[i])): no non-missing arguments to max;</span></a>
 <a class="sourceLine" id="cb12-67" data-line-number="67"><span class="co">#&gt; returning -Inf</span></a>
 <a class="sourceLine" id="cb12-68" data-line-number="68"><span class="co">#&gt; NULL</span></a></code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li>get pictures from the Harvard Art Museum website</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">get_picture &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">classification =</span> <span class="st">'Prints'</span>, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">numberp=</span><span class="dv">6</span>){</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="co">#library(httr)</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="co">#library(RCurl)</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="co">#library(svDialogs)</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  <span class="cf">if</span> (numberp <span class="op">&gt;</span><span class="st"> </span>size){</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(</a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">      <span class="kw"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(</a>
+<a class="sourceLine" id="cb13-8" data-line-number="8">        <span class="st">"You cannot download pictures more than your input size"</span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">      ),</a>
+<a class="sourceLine" id="cb13-10" data-line-number="10">      <span class="dt">call. =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb13-11" data-line-number="11">    )</a>
+<a class="sourceLine" id="cb13-12" data-line-number="12">  }</a>
+<a class="sourceLine" id="cb13-13" data-line-number="13">   <span class="cf">if</span> (numberp <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>){</a>
+<a class="sourceLine" id="cb13-14" data-line-number="14">    continue &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/svDialogs/man/dlg_message.html">dlg_message</a></span>(<span class="st">"Your mac/pc will be flooded by pictures. Do you want to continue?"</span>, <span class="st">"yesno"</span>)<span class="op">$</span>res</a>
+<a class="sourceLine" id="cb13-15" data-line-number="15">    <span class="cf">if</span> (continue <span class="op">==</span><span class="st"> 'no'</span>){</a>
+<a class="sourceLine" id="cb13-16" data-line-number="16">      <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(</a>
+<a class="sourceLine" id="cb13-17" data-line-number="17">        <span class="kw"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(</a>
+<a class="sourceLine" id="cb13-18" data-line-number="18">          <span class="st">"Try a smaller number : )"</span></a>
+<a class="sourceLine" id="cb13-19" data-line-number="19">        ),</a>
+<a class="sourceLine" id="cb13-20" data-line-number="20">        <span class="dt">call. =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb13-21" data-line-number="21">      )</a>
+<a class="sourceLine" id="cb13-22" data-line-number="22">    }</a>
+<a class="sourceLine" id="cb13-23" data-line-number="23">    <span class="cf">if</span> (continue <span class="op">==</span><span class="st"> 'yes'</span>){</a>
+<a class="sourceLine" id="cb13-24" data-line-number="24">      <span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/exists.html">exists</a></span>(<span class="st">"token"</span>)<span class="op">==</span><span class="ot">FALSE</span>){</a>
+<a class="sourceLine" id="cb13-25" data-line-number="25">        <span class="kw"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="st">"please get your token thorough `token &lt;- get_token()` and input token=token in this function : )"</span>)</a>
+<a class="sourceLine" id="cb13-26" data-line-number="26">      }</a>
+<a class="sourceLine" id="cb13-27" data-line-number="27">      <span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb13-28" data-line-number="28">        resultform &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_artwork_info.html">get_artwork_info</a></span>(<span class="dt">classification=</span>classification, <span class="dt">size=</span>size, <span class="dt">token=</span>token)</a>
+<a class="sourceLine" id="cb13-29" data-line-number="29">        objectid1 &lt;-<span class="st"> </span>resultform[,<span class="dv">8</span>]</a>
+<a class="sourceLine" id="cb13-30" data-line-number="30">        imageurls &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(resultform[, <span class="dv">10</span>]))</a>
+<a class="sourceLine" id="cb13-31" data-line-number="31">        nameimage &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>()</a>
+<a class="sourceLine" id="cb13-32" data-line-number="32">        <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(url)</a>
+<a class="sourceLine" id="cb13-33" data-line-number="33">        <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numberp){</a>
+<a class="sourceLine" id="cb13-34" data-line-number="34">          nameimage[i] &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(objectid1[[i]],<span class="st">'.jpeg'</span>,<span class="dt">sep=</span><span class="st">""</span>)</a>
+<a class="sourceLine" id="cb13-35" data-line-number="35">          <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="dt">url =</span> <span class="kw"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(imageurls[i]), <span class="dt">destfile =</span> <span class="kw"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(nameimage[i]),</a>
+<a class="sourceLine" id="cb13-36" data-line-number="36">                        <span class="dt">quiet =</span> <span class="ot">FALSE</span>, <span class="dt">mode=</span><span class="st">"w"</span>,<span class="dt">cacheOK=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb13-37" data-line-number="37">        }</a>
+<a class="sourceLine" id="cb13-38" data-line-number="38">        <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="st">"Hooray! finished"</span>)</a>
+<a class="sourceLine" id="cb13-39" data-line-number="39">      }</a>
+<a class="sourceLine" id="cb13-40" data-line-number="40">    }</a>
+<a class="sourceLine" id="cb13-41" data-line-number="41">  }</a>
+<a class="sourceLine" id="cb13-42" data-line-number="42">  <span class="cf">if</span> (numberp <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>){</a>
+<a class="sourceLine" id="cb13-43" data-line-number="43">    <span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/exists.html">exists</a></span>(<span class="st">"token"</span>)<span class="op">==</span><span class="ot">FALSE</span>){</a>
+<a class="sourceLine" id="cb13-44" data-line-number="44">      <span class="kw"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="st">"please get your token thorough `token &lt;- get_token()` and input token=token in this function : )"</span>)</a>
+<a class="sourceLine" id="cb13-45" data-line-number="45">    }</a>
+<a class="sourceLine" id="cb13-46" data-line-number="46">    <span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb13-47" data-line-number="47">    resultform &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_artwork_info.html">get_artwork_info</a></span>(<span class="dt">classification=</span>classification, <span class="dt">size=</span>size, <span class="dt">token=</span>token)</a>
+<a class="sourceLine" id="cb13-48" data-line-number="48">    objectid1 &lt;-<span class="st"> </span>resultform[,<span class="dv">8</span>]</a>
+<a class="sourceLine" id="cb13-49" data-line-number="49">    imageurls &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(resultform[, <span class="dv">10</span>]))</a>
+<a class="sourceLine" id="cb13-50" data-line-number="50">    nameimage &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>()</a>
+<a class="sourceLine" id="cb13-51" data-line-number="51">    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numberp){</a>
+<a class="sourceLine" id="cb13-52" data-line-number="52">      nameimage[i] &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(objectid1[[i]],<span class="st">'.jpeg'</span>,<span class="dt">sep=</span><span class="st">""</span>)</a>
+<a class="sourceLine" id="cb13-53" data-line-number="53">      <span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(nameimage[i]))) <span class="op">!=</span><span class="st"> </span><span class="dv">1</span>){</a>
+<a class="sourceLine" id="cb13-54" data-line-number="54">        <span class="kw"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="st">"this item may not have an image"</span>)</a>
+<a class="sourceLine" id="cb13-55" data-line-number="55">      }</a>
+<a class="sourceLine" id="cb13-56" data-line-number="56">      <span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb13-57" data-line-number="57">        <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="dt">url =</span> <span class="kw"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(imageurls[i]), <span class="dt">destfile =</span> <span class="kw"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(nameimage[i]),</a>
+<a class="sourceLine" id="cb13-58" data-line-number="58">                      <span class="dt">quiet =</span> <span class="ot">FALSE</span>, <span class="dt">mode=</span><span class="st">"w"</span>,<span class="dt">cacheOK=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb13-59" data-line-number="59">      }</a>
+<a class="sourceLine" id="cb13-60" data-line-number="60">    }</a>
+<a class="sourceLine" id="cb13-61" data-line-number="61">    <span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="st">"Hooray! finished"</span>)</a>
+<a class="sourceLine" id="cb13-62" data-line-number="62">  }</a>
+<a class="sourceLine" id="cb13-63" data-line-number="63"> }</a>
+<a class="sourceLine" id="cb13-64" data-line-number="64">}</a></code></pre></div>
 <p>Thank you for your time! If there are any questions, please feel free to contact me at <a href="mailto:yh3137@columbia.edu" class="email">yh3137@columbia.edu</a>. Hope you enjoy the artwork : )</p>
   </div>
 

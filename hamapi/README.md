@@ -18,9 +18,13 @@ museum.
 Allows user to obtain the information of which gallery has most artwork
 collections.
 
-(Please note that this package can only be downloaded to local folder
-and run the R project version. I will keep updating. Thank you for your
-patience.)
+Allows user to download pictures from Harvard Art Museum website.
+
+Please try download this package from
+<https://github.com/MelodieYuxiuHe/HAM> and use
+devtools::install\_github("MelodieYuxiuHe/HAM/hamapi) to install.
+
+I will keep updating. : )
 
 Feel free to contact me at: <yuxiu.he@yahoo.com> regarding problems.
 
