@@ -1,7 +1,7 @@
 #' Get a token and save it as a global variable for future use.
 #'
 #' @return It will return the token that user input
-#' @import svDialogs
+#' @importFrom svDialogs dlgInput
 #' @import utils
 #' @export
 get_token <- function(){

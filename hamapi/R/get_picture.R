@@ -10,7 +10,8 @@
 #' @examples
 #' get_picture(number = 2, classification = 'Vessels')
 #' get_picture(number = 2, classification = 'Prints')
-#' @import svDialogs
+#' @importFrom svDialogs dlg_message
+#' @importFrom svDialogs dlgInput
 #' @import httr
 #' @import RCurl
 #' @import rvest
