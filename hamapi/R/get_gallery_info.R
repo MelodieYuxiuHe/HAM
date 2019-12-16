@@ -12,7 +12,7 @@
 #' @examples
 #' get_gallery_info(floor=2, size=14)
 #' get_gallery_info(floor=1, size=12)
-#' @importFrom svDialogs dlgInput
+#' @import svDialogs
 #' @import httr
 #' @import RCurl
 #' @import rvest

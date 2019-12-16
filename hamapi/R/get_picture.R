@@ -35,7 +35,7 @@ get_picture <- function(classification = 'Prints', number=6){
         message("please get your token thorough `token <- get_token()`: )")
       }
       else{
-        resultform <- get_artwork_info(classification=classification, size=size, token=token)
+        resultform <- get_artwork_info(classification=classification, size=number, token=token)
         objectid1 <- resultform[,8]
         imageurls <- as.vector(unlist(resultform[, 10]))
         nameimage <- list()

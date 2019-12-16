@@ -5,7 +5,7 @@
 #' @examples
 #' most_object(floor = 3)
 #' most_object(floor = 2)
-#' @importFrom svDialogs dlgInput
+#' @import svDialogs
 #' @import httr
 #' @export
 most_object <- function(floor=2){

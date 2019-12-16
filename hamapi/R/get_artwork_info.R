@@ -10,7 +10,7 @@
 #' culture, division, dclassification, department, objectid, corresponding url and imageurl.
 #' @examples
 #' get_artwork_info(classification='Prints', size=10)
-#' @importFrom svDialogs dlgInput
+#' @import svDialogs
 #' @import rvest
 #' @import httr
 #' @export
