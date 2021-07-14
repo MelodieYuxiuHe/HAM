@@ -1,6 +1,8 @@
 
 # hamapi
 
+This is my individual course project for Modern Data Structure at Columbia University. I love art and data so I made this package.
+
 This package is based on the Harvard Art Museum API.
 (<https://www.harvardartmuseums.org/collections/api>)
 
