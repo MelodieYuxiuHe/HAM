@@ -25,8 +25,6 @@ Please use the following code to install.
 #devtools::install_github("MelodieYuxiuHe/HAM/hamapi") 
 ```
 
-I will keep updating. : )
-
 Feel free to contact me at: <yuxiu.he@yahoo.com> regarding problems.
 
 Enjoy your art journey\!
